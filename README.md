@@ -1,14 +1,15 @@
 # Select
 ```
-SELECT * FROM film 
-SELECT film_id, title FROM film
+SELECT * FROM users 
+SELECT name, age FROM users
+SELECT name, `age`, birthday FROM users ORDER BY `name`, age DESC
 ```
 
 # Select DISTINCT
 ```
-SELECT DISTINCT id FROM film
-SELECT DISTINCT `length` FROM film ORDER BY `length`
-SELECT DISTINCT `length` FROM film ORDER BY `length` DESC
+SELECT DISTINCT name FROM users
+SELECT DISTINCT `name` FROM users ORDER BY `name`
+SELECT DISTINCT `name` FROM users ORDER BY `name` DESC
 ```
 
 # Select Where
@@ -30,8 +31,8 @@ SELECT * FROM users WHERE dept NOT LIKE 'd%';
 # Select Advance where
 ```
 SELECT * FROM users WHERE name = 'shvan' OR age >= 15
-SELECT * FROM film WHERE last_update >= '2006-02-15' and rental_duration >= 5
-SELECT * FROM film WHERE (title = 'description' AND id = 1) OR duration >= 7
+SELECT * FROM users WHERE birthday >= '2006-02-15' and points >= 5
+SELECT * FROM film WHERE (age = 17 AND name = 'shvan') OR points >= 7
 ```
 
 # Select Aggregate Functions
