@@ -14,9 +14,17 @@ SELECT DISTINCT `length` FROM film ORDER BY `length`
 # Select Where
 ```
 SELECT * FROM film WHERE title = 'ACE GOLDFINGER'
-SELECT * FROM film WHERE title LIKE '%fai%'
 SELECT * FROM film WHERE last_update >= '2006-02-15'
 SELECT * FROM users WHERE age BETWEEN 20 AND 25;
+```
+
+# Select Like
+```
+SELECT * FROM users WHERE dept LIKE 'd%';
+SELECT * FROM users WHERE dept LIKE 'dev%';
+SELECT * FROM users WHERE dept LIKE '%t';
+SELECT * FROM users WHERE dept LIKE '%e%';
+SELECT * FROM users WHERE dept NOT LIKE 'd%';
 ```
 
 # Select Advance where
