@@ -41,7 +41,6 @@ SELECT * FROM users WHERE age = 17 OR points >= 7
 SELECT * FROM users WHERE name = 'shvan' OR age >= 15
 SELECT * FROM users WHERE birthday >= '2006-02-15' and points >= 5
 SELECT * FROM users WHERE (age = 17 AND name = 'shvan') OR points >= 7
-
 ```
 
 # Select Aggregate Functions
