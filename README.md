@@ -18,7 +18,6 @@ SELECT * FROM users WHERE name = 'Shvan'
 SELECT * FROM users WHERE birthday >= '2000-02-15'
 SELECT * FROM users WHERE dept = value1
 SELECT * FROM users WHERE dept <> value1
-SELECT * FROM users WHERE dept LIKE 'value _ %'
 SELECT * FROM users WHERE dept IS NULL
 SELECT * FROM users WHERE dept IS NOT NULL
 SELECT * FROM users WHERE dept IS IN (value1, value2)
@@ -44,7 +43,7 @@ SELECT * FROM users WHERE (age = 17 AND name = 'shvan') OR points >= 7
 ```
 
 # Select Aggregate Functions
-```
+```sql
 SELECT COUNT(id) FROM users;
 SELECT MAX(age) FROM users;
 SELECT MIN(age) FROM users;
