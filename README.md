@@ -68,8 +68,8 @@ SELECT * FROM address WHERE city_id IN
 SELECT * FROM customer WHERE customer_id NOT IN 
     (SELECT DISTINCT customer_id FROM payment);  
 
-SELECT MAX(items), MIN(items), FLOOR(AVG(items)) FROM 
-    (SELECT film_id, COUNT(film_id) AS items FROM inventory GROUP BY film_id) AS lineitems;
+SELECT MAX(items), MIN(items), FLOOR(AVG(items)) FROM (SELECT film_id, COUNT(film_id) AS items 
+    FROM inventory GROUP BY film_id) AS lineitems;
 ```
 
 ## Update
