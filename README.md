@@ -59,7 +59,7 @@ SELECT age, COUNT(age) FROM users GROUP BY age HAVING count(age) >=2;
 ```
 
 ## Sub Query
-```
+```sql
 SELECT * FROM payment WHERE amount > (SELECT AVG(amount) FROM payment);  
 
 SELECT * FROM address WHERE city_id IN 
