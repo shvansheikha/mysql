@@ -58,6 +58,13 @@ SELECT age, COUNT(age) FROM users WHERE age > 20 GROUP BY age;
 SELECT age, COUNT(age) FROM users GROUP BY age HAVING count(age) >=2;
 ```
 
+## Having
+```SQL
+SELECT `customerNumber`, COUNT(*) as `total` FROM `orders` 
+GROUP BY `customerNumber`
+HAVING `total` > 2 AND `total` < 17 ORDER BY `total` DESC
+```
+
 ## Sub Query
 ```SQL
 SELECT * FROM payment WHERE amount > (SELECT AVG(amount) FROM payment);  
