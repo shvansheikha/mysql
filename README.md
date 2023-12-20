@@ -1,19 +1,19 @@
 ## Select
-```
+```SQL
 SELECT * FROM users 
 SELECT name, age FROM users
 SELECT name, `age`, birthday FROM users ORDER BY `name`, age DESC
 ```
 
 ## Select DISTINCT
-```
+```SQL
 SELECT DISTINCT name FROM users
 SELECT DISTINCT `name` FROM users ORDER BY `name`
 SELECT DISTINCT `name` FROM users ORDER BY `name` DESC
 ```
 
 ## Select Where
-```
+```SQL
 SELECT * FROM users WHERE name = 'Shvan'
 SELECT * FROM users WHERE birthday >= '2000-02-15'
 SELECT * FROM users WHERE dept = value1
@@ -25,7 +25,7 @@ SELECT * FROM users WHERE dept IS NOT IN (value1, value2)
 ```
 
 ## Select Like
-```
+```SQL
 SELECT * FROM users WHERE dept LIKE 'd%';
 SELECT * FROM users WHERE dept LIKE 'dev%';
 SELECT * FROM users WHERE dept LIKE '%t';
@@ -34,7 +34,7 @@ SELECT * FROM users WHERE dept NOT LIKE 'd%';
 ```
 
 ## Select Advance where
-```
+```SQL
 SELECT * FROM users WHERE age BETWEEN 20 AND 25;
 SELECT * FROM users WHERE age = 17 OR points >= 7
 SELECT * FROM users WHERE name = 'shvan' OR age >= 15
@@ -43,7 +43,7 @@ SELECT * FROM users WHERE (age = 17 AND name = 'shvan') OR points >= 7
 ```
 
 ## Select Aggregate Functions
-```
+```SQL
 SELECT COUNT(id) FROM users;
 SELECT MAX(age) FROM users;
 SELECT MIN(age) FROM users;
@@ -52,14 +52,14 @@ SELECT UCASE(first_name), LCASE(last_name) FROM users;
 ```
 
 ## Group By
-```
+```SQL
 SELECT age, COUNT(age) FROM users GROUP BY age;
 SELECT age, COUNT(age) FROM users WHERE age > 20 GROUP BY age;
 SELECT age, COUNT(age) FROM users GROUP BY age HAVING count(age) >=2;
 ```
 
 ## Sub Query
-```sql
+```SQL
 SELECT * FROM payment WHERE amount > (SELECT AVG(amount) FROM payment);  
 
 SELECT * FROM address WHERE city_id IN 
@@ -73,6 +73,6 @@ SELECT MAX(items), MIN(items), FLOOR(AVG(items)) FROM (SELECT
 ```
 
 ## Update
-```
+```SQL
 UPDATE film SET description = " updated description" WHERE film_id = 1;
 ```
