@@ -9,7 +9,8 @@ SELECT name, `age`, birthday FROM users ORDER BY `name`, age DESC
 ```SQL
 SELECT DISTINCT `state` FROM `customers`;
 SELECT DISTINCT `state` FROM `customers` ORDER BY `state` DESC
-SELECT DISTINCT `state`, `city` FROM `customers` WHERE state IS NOT NULL ORDER BY state, city
+SELECT DISTINCT `state`, `city` FROM `customers` 
+    WHERE state IS NOT NULL ORDER BY `state`, `city`
 ```
 
 ## Select Where
