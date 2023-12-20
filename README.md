@@ -60,10 +60,16 @@ SELECT age, COUNT(age) FROM users GROUP BY age HAVING count(age) >=2;
 
 ## Sub Query
 ```
-SELECT * FROM address WHERE city_id IN (SELECT city_id FROM city WHERE country_id IN(1,2,3,4,5));
 SELECT * FROM payment WHERE amount > (SELECT AVG(amount) FROM payment);  
-SELECT * FROM customer WHERE customer_id NOT IN (SELECT DISTINCT customer_id FROM payment);  
-SELECT MAX(items), MIN(items), FLOOR(AVG(items)) FROM (SELECT film_id, COUNT(film_id) AS items FROM inventory GROUP BY film_id) AS lineitems;
+
+SELECT * FROM address WHERE city_id IN 
+    (SELECT city_id FROM city WHERE country_id IN(1,2,3,4,5));
+
+SELECT * FROM customer WHERE customer_id NOT IN 
+    (SELECT DISTINCT customer_id FROM payment);  
+
+SELECT MAX(items), MIN(items), FLOOR(AVG(items)) FROM 
+    (SELECT film_id, COUNT(film_id) AS items FROM inventory GROUP BY film_id) AS lineitems;
 ```
 
 ## Update
