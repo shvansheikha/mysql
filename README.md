@@ -7,9 +7,9 @@ SELECT name, `age`, birthday FROM users ORDER BY `name`, age DESC
 
 ## Select DISTINCT
 ```SQL
-SELECT DISTINCT name FROM users
-SELECT DISTINCT `name` FROM users ORDER BY `name`
-SELECT DISTINCT `name` FROM users ORDER BY `name` DESC
+SELECT DISTINCT `state` FROM `customers`;
+SELECT DISTINCT `state` FROM `customers` ORDER BY `state` DESC
+SELECT DISTINCT `state`, `city` FROM `customers` WHERE state IS NOT NULL ORDER BY state, city
 ```
 
 ## Select Where
