@@ -2,15 +2,14 @@
 ```SQL
 SELECT * FROM users 
 SELECT name, age FROM users
-SELECT name, `age`, birthday FROM users ORDER BY `name`, age DESC
+SELECT name, age, birthday FROM users ORDER BY name, age DESC
 ```
 
 ## Select DISTINCT
 ```SQL
-SELECT DISTINCT `state` FROM `customers`;
-SELECT DISTINCT `state` FROM `customers` ORDER BY `state` DESC
-SELECT DISTINCT `state`, `city` FROM `customers` 
-    WHERE state IS NOT NULL ORDER BY `state`, `city`
+SELECT DISTINCT state FROM customers;
+SELECT DISTINCT state FROM customers ORDER BY state DESC
+SELECT DISTINCT state, city FROM customers WHERE state IS NOT NULL
 ```
 
 ## Select Where
@@ -42,7 +41,7 @@ SELECT * FROM users WHERE name = 'shvan' OR age >= 15
 SELECT * FROM users WHERE birthday >= '2006-02-15' and points >= 5
 SELECT * FROM users WHERE (age = 17 AND name = 'shvan') OR points >= 7
 
-SELECT * FROM `orders` WHERE `requireddate` 
+SELECT * FROM orders WHERE requireddate 
     BETWEEN CAST('2003-01-01' AS DATE) AND CAST('2003-01-31' AS DATE);
 ```
 
@@ -57,30 +56,30 @@ SELECT UCASE(first_name), LCASE(last_name) FROM users;
 
 ## Group By
 ```SQL
-SELECT age, COUNT(age) FROM users GROUP BY age;
-SELECT age, COUNT(age) FROM users WHERE age > 20 GROUP BY age;
-SELECT age, COUNT(age) FROM users GROUP BY age HAVING count(age) >=2;
+SELECT city,COUNT(*) as count FROM customers GROUP BY city ORDER BY count DESC;
+SELECT city, COUNT(*) as count FROM customers WHERE age > 25 GROUP BY city ORDER BY count DESC;
+SELECT age, COUNT(*) as total FROM customers GROUP BY age HAVING total >=4 ORDER BY total DESC;
 ```
 
 ## Having
 ```SQL
-SELECT `customerNumber`, COUNT(*) as `total` FROM `orders` 
-GROUP BY `customerNumber`
-HAVING `total` > 2 AND `total` < 17 ORDER BY `total` DESC
+SELECT customerNumber, COUNT(*) as total FROM orders 
+GROUP BY customerNumber
+HAVING total BETWEEN 3 AND 17 ORDER BY total DESC
 ```
 
 ## Sub Query
 ```SQL
-SELECT * FROM payment WHERE amount > (SELECT AVG(amount) FROM payment);  
+SELECT * FROM payments WHERE amount > (SELECT AVG(amount) FROM payments) ORDER BY amount DESC  
 
 SELECT * FROM address WHERE city_id IN 
     (SELECT city_id FROM city WHERE country_id IN(1,2,3,4,5));
 
-SELECT * FROM customer WHERE customer_id NOT IN 
-    (SELECT DISTINCT customer_id FROM payment);  
+SELECT * FROM customers WHERE customerNumber NOT IN 
+    (SELECT DISTINCT customerNumber FROM payments); 
 
 SELECT MAX(items), MIN(items), FLOOR(AVG(items)) FROM (SELECT 
-    film_id, COUNT(film_id) AS items FROM inventory GROUP BY film_id) AS lineitems;
+    customerNumber, COUNT(customerNumber) AS items FROM payments GROUP BY customerNumber) AS lineitems;
 ```
 
 ## Update
